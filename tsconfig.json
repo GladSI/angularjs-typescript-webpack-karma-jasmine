@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "baseUrl": "./src",
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": [
+      "es2015",
+      "es2017",
+      "es5",
+      "es6",
+      "es7",
+      "dom",
+      "scripthost"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./dist/",
+    "removeComments": false,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es5",
+  },
+  "exclude": [
+    ".git",
+    ".vscode",
+    "build",
+    "**/*.d.ts",
+    "node_modules/**/*.ts"
+  ],
+  "files": [
+    "src/bootstrap.ts"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}

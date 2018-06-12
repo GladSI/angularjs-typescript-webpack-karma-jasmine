@@ -1,0 +1,40 @@
+<div
+  ng-show="$ctrl.forms.length > 0"
+  ng-repeat="selectedForm in $ctrl.currentSelectedForms"
+>
+  <select
+    id="select{{selectedForm}}"
+    ng-disabled="!$ctrl.canEditForm(selectedForm)"
+    convert-to-number
+    ng-model="$ctrl.currentSelectedForms[$index]"
+    ng-change="$ctrl.setSelectedForms()"
+    ng-style="$ctrl.selectionStyle"
+  >
+    <option
+      id="option{{$index}}"
+      ng-repeat="formForDistribution in $ctrl.getFormsForDistribution(selectedForm)"
+      ng-selected="formForDistribution == selectedForm"
+      ng-value="{{formForDistribution}}"
+    >
+      {{$ctrl.forms[formForDistribution].formName}}
+    </option>
+  </select>
+  <span
+    ng-show="$last"
+  >
+    <button
+      id="deleteButton"
+      ng-show="$ctrl.canShowDeleteButton()"
+      ng-click="$ctrl.deleteFormSelection()"
+    >
+      X
+    </button>
+    <button
+      id="addButton"
+      ng-show="$ctrl.canShowAddButton()"
+      ng-click="$ctrl.addFormSelection()"
+    >
+      +
+    </button>
+  </span>
+</div>

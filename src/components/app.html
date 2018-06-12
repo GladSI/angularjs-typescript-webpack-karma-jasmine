@@ -1,0 +1,38 @@
+<div ng-repeat="form in $ctrl.formsNames track by $index">
+  Selection from '{{form}}:
+
+  <!--
+    Example of calling a component from a task:
+      <select-form
+        ng-model="selectedForms"
+        forms="availableForms">
+      </select-form>
+
+    In the call below:
+      - "$ctrl.selectedForms[form]" corresponds to "selectedForms" from the example
+      - "$ctrl.availableForms[form] corresponds to "availableForms" from the example
+  -->
+  <select-form
+    ng-model="$ctrl.selectedForms[form]"
+    forms="$ctrl.availableForms[form]"
+  >
+  </select-form>
+
+</div>
+<div ng-repeat="form in $ctrl.formsNames">
+  <hr>
+  Selected from '{{form}}':
+
+  <!--
+    Statement from the task:
+      selectedForms(ngModel) - array of selected forms string[]
+
+    In the call below "$ctrl.getSelectedForms(form)":
+      - corresponds to "selectedForms(ngModel)"
+      - and can be replaced by "$ctrl.selectedForms[form]"
+      - because "$ctrl.selectedForms[form]" is "ngModel"
+  -->
+  <div ng-repeat="selectedForm in $ctrl.getSelectedForms(form)">
+    {{selectedForm}}
+  </div>
+</div>
